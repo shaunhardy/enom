@@ -1,0 +1,29 @@
+{
+    "name": "shaunhardy/enom",
+    "description": "Library for making calls to the eNom web API",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shaun Hardy",
+            "email": "party.hardy247@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.0",
+        "jms/serializer": "^1.0",
+        "symfony/options-resolver": "^2.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "SMH\\Enom\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SMH\\Enom\\Tests\\": "tests/"
+        }
+    }
+}
