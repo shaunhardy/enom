@@ -16,7 +16,15 @@ abstract class BaseRequest
 
     public function setParameter($name, $value)
     {
+        if ($value === null && isset($this->parameters[$name])) {
+            unset($this->parameters[$name]);
+
+            return $this;
+        }
+
         $this->parameters[$name] = $value;
+
+        return $this;
     }
 
     public function getParameter($name)
@@ -28,7 +36,9 @@ abstract class BaseRequest
         return null;
     }
 
-    public abstract function configureOptions(OptionsResolver $resolver);
+    public function configureOptions(OptionsResolver $resolver)
+    {
+    }
 
     public function toArray()
     {

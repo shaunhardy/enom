@@ -8,6 +8,8 @@
 
 namespace SMH\Enom\Response;
 
+use JMS\Serializer\Annotation as Serializer;
+
 /**
  * Response to the GetHosts command.
  *

@@ -51,7 +51,13 @@ class Client
      */
     public function sendRequest(RequestInterface $request)
     {
-        $xml = $this->transport->get($this->endpoint, $request->toArray());
+        $params = array_merge($request->toArray(), [
+            'UID' => $this->username,
+            'PW' => $this->password,
+            'ResponseType' => 'XML'
+        ]);
+
+        $xml = $this->transport->get($this->endpoint, $params);
         $this->handleErrors($xml);
         $response = $this->serializer->deserialize($xml);
 
