@@ -8,15 +8,15 @@
 
 namespace SMH\Enom;
 
-use GuzzleHttp\ClientInterface as TransportInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use JMS\Serializer\Exception\RuntimeException as SerializerRuntimeException;
-use JMS\Serializer\SerializerInterface;
 use SMH\Enom\Exception\RequestException;
 use SMH\Enom\Exception\SerializationException;
 use SMH\Enom\Exception\ValidationException;
 use SMH\Enom\Request\RequestInterface;
 use SMH\Enom\Response\BaseResponse;
+use SMH\Enom\Serializer\SerializerInterface;
+use SMH\Enom\Transport\TransportInterface;
 
 class Client
 {
@@ -51,17 +51,11 @@ class Client
      */
     public function sendRequest(RequestInterface $request)
     {
-        try {
-            $xml = (string)$this->transport->request('GET', $this->endpoint, ['query' => $request->toArray()]);
-            $this->handleErrors($xml);
-            $response = $this->serializer->deserialize($xml, 'SMH\\Enom\\Response\\BaseResponse', 'XML');
+        $xml = $this->transport->get($this->endpoint, $request->toArray());
+        $this->handleErrors($xml);
+        $response = $this->serializer->deserialize($xml);
 
-            return $response;
-        } catch (GuzzleException $ex) {
-            throw new RequestException($ex->getMessage(), null, $ex);
-        } catch (SerializerRuntimeException $ex) {
-            throw new SerializationException($ex->getMessage(), null, $ex);
-        }
+        return $response;
     }
 
     private function handleErrors($xml)

@@ -8,6 +8,11 @@
 
 namespace SMH\Enom;
 
+use SMH\Enom\Serializer\JMSSerializer;
+use SMH\Enom\Serializer\SerializerInterface;
+use SMH\Enom\Transport\GuzzleTransport;
+use SMH\Enom\Transport\TransportInterface;
+
 class ClientBuilder
 {
     const ENDPOINT_PRODUCTION = 'https://reseller.enom.com/interface.asp';
@@ -27,12 +32,6 @@ class ClientBuilder
         return new ClientBuilder();
     }
 
-    public function __construct()
-    {
-        $this->withGuzzle();
-        $this->withJMSSerializer();
-    }
-
     /**
      * Build the client
      *
@@ -42,26 +41,77 @@ class ClientBuilder
      */
     public function build($username, $password)
     {
-        return new Client($this->transport, $this->serializer, $username, $password, $this->endpoint);
+        $client = new Client(
+            $this->transport ?: new GuzzleTransport(),
+            $this->serializer ?: new JMSSerializer(),
+            $username,
+            $password,
+            $this->endpoint ?: static::ENDPOINT_PRODUCTION
+        );
+
+        return $client;
     }
 
-    public function usingProduction()
+    /**
+     * Use a custom transport
+     *
+     * @param TransportInterface $transport
+     * @return ClientBuilder
+     */
+    public function withTransport(TransportInterface $transport)
     {
-        $this->endpoint = static::ENDPOINT_PRODUCTION;
+        $this->transport = $transport;
+
+        return $this;
     }
 
-    public function usingTest()
+    /**
+     * Use a custom serializer
+     *
+     * @param SerializerInterface $serializer
+     * @return ClientBuilder
+     */
+    public function withSerializer(SerializerInterface $serializer)
     {
-        $this->endpoint = static::ENDPOINT_TEST;
+        $this->serializer = $serializer;
+
+        return $this;
     }
 
-    public function withGuzzle()
+    /**
+     * Use a custom endpoint URL
+     *
+     * @param $endpoint string URL to the eNom API endpoint
+     * @return ClientBuilder
+     */
+    public function withEndpoint($endpoint)
     {
-        $this->transport = new \GuzzleHttp\Client();
+        $this->endpoint = $endpoint;
+
+        return $this;
     }
 
-    public function withJMSSerializer()
+    /**
+     * Use the Production environment endpoint
+     *
+     * @return ClientBuilder
+     */
+    public function usingProductionEndpoint()
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->withEndpoint(static::ENDPOINT_PRODUCTION);
+
+        return $this;
+    }
+
+    /**
+     * Use the Test environment endpoint
+     *
+     * @return ClientBuilder
+     */
+    public function usingTestingEndpoint()
+    {
+        $this->withEndpoint(static::ENDPOINT_TEST);
+
+        return $this;
     }
 }
