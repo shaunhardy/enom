@@ -6,6 +6,7 @@
 
 namespace SMH\Enom\Serializer;
 
+use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\SerializerBuilder;
 use SMH\Enom\Exception\SerializationException;
 use SMH\Enom\Response\BaseResponse;
@@ -23,6 +24,11 @@ class JMSSerializer implements SerializerInterface
     private function initialize()
     {
         $this->serializer = SerializerBuilder::create()->build();
+
+        AnnotationRegistry::registerAutoloadNamespace('JMS\Serializer\Annotation', [
+            __DIR__.'/../../../../../../vendor/jms/serializer/src',
+            __DIR__.'/../../vendor/jms/serializer/src'
+        ]);
     }
 
     /**
