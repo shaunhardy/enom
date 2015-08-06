@@ -15,7 +15,7 @@ use SMH\Enom\Response\BaseResponse;
 use SMH\Enom\Serializer\SerializerInterface;
 use SMH\Enom\Transport\TransportInterface;
 
-class Client
+class Client implements ClientInterface
 {
     private $transport;
     private $serializer;

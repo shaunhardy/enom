@@ -8,7 +8,7 @@
 
 namespace SMH\Enom;
 
-use Psr\Http\Message\RequestInterface;
+use SMH\Enom\Request\RequestInterface;
 use SMH\Enom\Response\BaseResponse;
 
 interface ClientInterface
