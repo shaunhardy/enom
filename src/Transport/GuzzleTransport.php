@@ -37,7 +37,7 @@ class GuzzleTransport implements TransportInterface
     public function get($url, array $queryParameters)
     {
         try {
-            return (string)$this->client->request('GET', $url, ['query' => $queryParameters]);
+            return (string) $this->client->request('GET', $url, ['query' => $queryParameters])->getBody();
         } catch (\RuntimeException $ex) {
             throw new TransportException($ex->getMessage(), null, $ex);
         }
