@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface-response>
+    <host>
+        <name><![CDATA[@]]></name>
+        <type>A</type>
+        <address><![CDATA[12.34.56.78]]></address>
+        <hostid>20243281</hostid>
+    </host>
+    <host>
+        <name><![CDATA[www]]></name>
+        <type>CNAME</type>
+        <address><![CDATA[sesame.com.]]></address>
+        <hostid>20243282</hostid>
+    </host>
+    <DomainServices>
+        <EmailForwarding>True</EmailForwarding>
+        <HostRecords>True</HostRecords>
+    </DomainServices>
+    <Command>GETHOSTS</Command>
+    <APIType>API</APIType>
+    <Language>eng</Language>
+    <ErrCount>0</ErrCount>
+    <ResponseCount>0</ResponseCount>
+    <MinPeriod>1</MinPeriod>
+    <MaxPeriod>10</MaxPeriod>
+    <Server>SJL0VWRESELL_T</Server>
+    <Site>eNom</Site>
+    <IsLockable>True</IsLockable>
+    <IsRealTimeTLD>True</IsRealTimeTLD>
+    <TimeDifference>+08.00</TimeDifference>
+    <ExecTime>0.078</ExecTime>
+    <Done>true</Done>
+    <RequestDateTime>8/6/2015 10:08:29 AM</RequestDateTime>
+    <debug><![CDATA[]]></debug>
+</interface-response>

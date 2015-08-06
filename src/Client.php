@@ -8,10 +8,7 @@
 
 namespace SMH\Enom;
 
-use GuzzleHttp\Exception\GuzzleException;
-use JMS\Serializer\Exception\RuntimeException as SerializerRuntimeException;
 use SMH\Enom\Exception\RequestException;
-use SMH\Enom\Exception\SerializationException;
 use SMH\Enom\Exception\ValidationException;
 use SMH\Enom\Request\RequestInterface;
 use SMH\Enom\Response\BaseResponse;

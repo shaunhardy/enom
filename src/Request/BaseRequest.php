@@ -10,14 +10,16 @@ namespace SMH\Enom\Request;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-abstract class BaseRequest
+abstract class BaseRequest implements RequestInterface
 {
     private $parameters = array();
 
     public function setParameter($name, $value)
     {
-        if ($value === null && isset($this->parameters[$name])) {
-            unset($this->parameters[$name]);
+        if ($value === null) {
+            if (isset($this->parameters[$name])) {
+                unset($this->parameters[$name]);
+            }
 
             return $this;
         }
@@ -36,9 +38,7 @@ abstract class BaseRequest
         return null;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
-    }
+    abstract protected function configureOptions(OptionsResolver $resolver);
 
     public function toArray()
     {

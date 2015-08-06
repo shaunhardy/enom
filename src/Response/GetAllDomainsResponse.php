@@ -6,6 +6,7 @@
 
 namespace SMH\Enom\Response;
 
+use JMS\Serializer\Annotation as Serializer;
 use SMH\Enom\Model\DomainCollection;
 
 class GetAllDomainsResponse extends BaseResponse

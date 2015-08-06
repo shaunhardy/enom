@@ -7,6 +7,8 @@
 namespace SMH\Enom\Request;
 
 
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
 class GetAllDomainsRequest extends BaseRequest
 {
     const CONTACT_REGISTRANT = 'Registrant';
@@ -16,7 +18,7 @@ class GetAllDomainsRequest extends BaseRequest
 
     public function whichUseNameserver($nameserver)
     {
-        $this->setParameter('Nameserver', $nameserver);
+        $this->setParameter('NameServer', $nameserver);
 
         return $this;
     }
@@ -30,7 +32,7 @@ class GetAllDomainsRequest extends BaseRequest
 
     public function whichUseCustomNameservers()
     {
-        $this->setParameter('UseDNS', 'Custom');
+        $this->setParameter('UseDNS', 'custom');
 
         return $this;
     }
@@ -89,5 +91,23 @@ class GetAllDomainsRequest extends BaseRequest
         return $this;
     }
 
-
+    protected function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver
+            ->setDefined([
+                'Command',
+                'UseDNS',
+                'GetDefaultOnly',
+                'Letter',
+                'RegistrarLock',
+                'AutoRenew',
+                'Name',
+                'ContactType',
+                'NameServer',
+                'UseEnomNS'
+            ])
+            ->setDefaults([
+                'Command' => 'GetAllDomains',
+            ]);
+    }
 }

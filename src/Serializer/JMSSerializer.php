@@ -35,7 +35,7 @@ class JMSSerializer implements SerializerInterface
     public function deserialize($xml)
     {
         try {
-            $this->serializer->deserialize($xml, 'SMH\\Enom\\Response\\BaseResponse', 'XML');
+            return $this->serializer->deserialize($xml, 'SMH\\Enom\\Response\\BaseResponse', 'xml');
         } catch (\RuntimeException $ex) {
             throw new SerializationException($ex->getMessage(), null, $ex);
         }

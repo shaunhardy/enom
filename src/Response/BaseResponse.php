@@ -14,9 +14,11 @@ use JMS\Serializer\Annotation as Serializer;
  * The Base Response from which all other responses are derived.
  *
  * @Serializer\Discriminator(field="Command", map={
- *   "GetHost" = "SMH\Enom\Response\GetHostResponse"
+ *   "GETHOSTS" : "SMH\Enom\Response\GetHostsResponse",
+ *   "SETHOSTS" : "SMH\Enom\Response\SetHostsResponse",
+ *   "GETALLDOMAINS" : "SMH\Enom\Response\GetAllDomainsResponse"
  * })
  */
-class BaseResponse
+abstract class BaseResponse
 {
 }

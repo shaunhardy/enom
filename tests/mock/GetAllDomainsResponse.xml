@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface-response>
+    <GetAllDomains>
+        <DomainDetail>
+            <DomainName>sesame.com</DomainName>
+            <DomainNameID>0000000001</DomainNameID>
+            <expiration-date>1/28/2016 10:19:26 PM</expiration-date>
+            <lockstatus>Locked</lockstatus>
+            <AutoRenew>No</AutoRenew>
+        </DomainDetail>
+        <DomainDetail>
+            <DomainName>sesameexample.com</DomainName>
+            <DomainNameID>0000000002</DomainNameID>
+            <expiration-date>3/11/2016 4:10:07 PM</expiration-date>
+            <lockstatus>Not Locked</lockstatus>
+            <AutoRenew>Yes</AutoRenew>
+        </DomainDetail>
+        <domaincount>2</domaincount>
+        <UserRequestStatus>DomainBox</UserRequestStatus>
+    </GetAllDomains>
+    <Command>GETALLDOMAINS</Command>
+    <APIType>API</APIType>
+    <Language>eng</Language>
+    <ErrCount>0</ErrCount>
+    <ResponseCount>0</ResponseCount>
+    <MinPeriod></MinPeriod>
+    <MaxPeriod>10</MaxPeriod>
+    <Server>SJL0VWRESELL_T1</Server>
+    <Site>eNom</Site>
+    <IsLockable></IsLockable>
+    <IsRealTimeTLD></IsRealTimeTLD>
+    <TimeDifference>+0.00</TimeDifference>
+    <ExecTime>0.094</ExecTime>
+    <Done>true</Done>
+    <RequestDateTime>8/6/2015 8:47:16 AM</RequestDateTime>
+    <debug><![CDATA[]]></debug>
+</interface-response>

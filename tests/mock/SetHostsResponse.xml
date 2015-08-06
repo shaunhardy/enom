@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface-response>
+    <Command>SETHOSTS</Command>
+    <APIType>API.NET</APIType>
+    <Language>eng</Language>
+    <ErrCount>0</ErrCount>
+    <ResponseCount>0</ResponseCount>
+    <MinPeriod>1</MinPeriod>
+    <MaxPeriod>10</MaxPeriod>
+    <Server>sjl0vwresell_t</Server>
+    <Site>eNom</Site>
+    <IsLockable>True</IsLockable>
+    <IsRealTimeTLD>True</IsRealTimeTLD>
+    <TimeDifference>+8.00</TimeDifference>
+    <ExecTime>0.063</ExecTime>
+    <Done>true</Done>
+    <TrackingKey>30a4ed86-5c55-49ee-81db-b462700d0914</TrackingKey>
+    <RequestDateTime>8/6/2015 10:02:36 AM</RequestDateTime>
+    <debug/>
+</interface-response>

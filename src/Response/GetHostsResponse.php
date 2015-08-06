@@ -20,7 +20,7 @@ class GetHostsResponse extends BaseResponse
     /**
      * @Serializer\SerializedName("host")
      * @Serializer\Type("array<SMH\Enom\Model\Host>")
-     * @Serializer\XmlList(inline="true", entry="host")
+     * @Serializer\XmlList(inline=true, entry="host")
      *
      * @var array
      */

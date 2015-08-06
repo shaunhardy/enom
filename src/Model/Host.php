@@ -40,5 +40,5 @@ class Host
      *
      * @var string
      */
-    public $hostid;
+    public $hostId;
 }

@@ -14,19 +14,19 @@ class GetHostsRequest extends BaseRequest
 {
     public function __construct($sld, $tld)
     {
-        $this->setParameter('sld', $sld);
-        $this->setParameter('tld', $tld);
+        $this->setParameter('SLD', $sld);
+        $this->setParameter('TLD', $tld);
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    protected function configureOptions(OptionsResolver $resolver)
     {
         $resolver
             ->setDefaults([
-                'Command' => 'GetHost'
+                'Command' => 'GetHosts'
             ])
             ->setRequired([
-                'sld',
-                'tld'
+                'SLD',
+                'TLD'
             ]);
     }
 }
