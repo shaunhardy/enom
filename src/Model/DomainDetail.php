@@ -28,9 +28,9 @@ class DomainDetail
 
     /**
      * @Serializer\SerializedName("expiration-date")
-     * @Serializer\Type("DateTime<'n/j/Y g:i:s A'>")
+     * @Serializer\Type("string")
      *
-     * @var \DateTime
+     * @var string
      */
     public $expiration;
 
