@@ -22,8 +22,7 @@ class GuzzleTransport implements TransportInterface
     private function initialize()
     {
         $this->client = new Client([
-            // 'verify' => __DIR__.'/../../resources/enom.pem'
-            'verify' => false
+            'verify' => __DIR__.'/../../resources/enom.pem'
         ]);
     }
 
