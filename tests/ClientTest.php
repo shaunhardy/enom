@@ -9,6 +9,7 @@ namespace SMH\Enom\Tests;
 use SMH\Enom\Client;
 use SMH\Enom\Request\GetAllDomainsRequest;
 use SMH\Enom\Serializer\JMSSerializer;
+use SMH\Enom\Transport\GuzzleTransport;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
@@ -60,5 +61,23 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $request = new GetAllDomainsRequest();
 
         $client->sendRequest($request);
+    }
+
+    /**
+     * @group online
+     */
+    public function testCertificateChainTestServer()
+    {
+        $transport = new GuzzleTransport();
+        $transport->get('https://resellertest.enom.com/interface.asp', []);
+    }
+
+    /**
+     * @group online
+     */
+    public function testCertificateChainProductionServer()
+    {
+        $transport = new GuzzleTransport();
+        $transport->get('https://reseller.enom.com/interface.asp', []);
     }
 }

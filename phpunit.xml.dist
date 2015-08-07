@@ -17,4 +17,7 @@
             <directory>./tests</directory>
         </testsuite>
     </testsuites>
+    <groups>
+        <exclude>online</exclude>
+    </groups>
 </phpunit>
