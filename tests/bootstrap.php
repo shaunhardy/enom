@@ -7,5 +7,9 @@ call_user_func(function() {
         throw new \RuntimeException('Did not find vendor/autoload.php. Did you run "composer install --dev"?');
     }
 
+    AnnotationRegistry::registerAutoloadNamespace('JMS\Serializer\Annotation', [
+        __DIR__.'/../vendor/jms/serializer/src'
+    ]);
+
     require $autoloadFile;
 });

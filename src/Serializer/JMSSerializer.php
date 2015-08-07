@@ -24,11 +24,6 @@ class JMSSerializer implements SerializerInterface
     private function initialize()
     {
         $this->serializer = SerializerBuilder::create()->build();
-
-        AnnotationRegistry::registerAutoloadNamespace('JMS\Serializer\Annotation', [
-            __DIR__.'/../../../../../../vendor/jms/serializer/src',
-            __DIR__.'/../../vendor/jms/serializer/src'
-        ]);
     }
 
     /**
